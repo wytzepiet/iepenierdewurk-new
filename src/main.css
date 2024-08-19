@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply font-lovelo text-3xl;
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+}
+
+@font-face {
+  font-family: "Lovelo";
+  font-weight: bold;
+  src: url("/fonts/lovelo/Lovelo-Black.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lovelo";
+  font-weight: normal;
+  src: url("/fonts/lovelo/Lovelo-LineBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lovelo";
+  font-weight: light;
+  src: url("/fonts/lovelo/Lovelo-LineLight.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Hero";
+  font-weight: light;
+  src: url("/fonts/hero/Hero-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "Hero";
+  font-weight: normal;
+  src: url("/fonts/hero/Hero-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Hero";
+  font-weight: bold;
+  src: url("/fonts/hero/Hero-Bold.otf") format("opentype");
+}

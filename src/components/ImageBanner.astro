@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  src: ImageMetadata;
+  title: string;
+}
+---
+
+<script>
+  import gsap from "gsap";
+
+  gsap.to(".image-banner", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 1,
+    stagger: 0.15,
+  });
+</script>
+
+<div
+  class="image-banner opacity-0 translate-y-6 bg-gray-500 aspect-[3/2] min-w-[300px] flex-1 flex-center text-center"
+>
+  <Image
+    loading="eager"
+    src={Astro.props.src}
+    alt=""
+    class="absolute w-full h-full object-cover"
+  />
+  <div
+    class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent to-black"
+  >
+  </div>
+  <h1 class="relative text-white font-bold">{Astro.props.title}</h1>
+</div>
