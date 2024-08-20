@@ -1,0 +1,22 @@
+---
+interface Props {
+  class?: string;
+}
+const props = Astro.props;
+---
+
+<script>
+  import gsap from "gsap";
+
+  gsap.from(".card", {
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    delay: 0.5,
+    stagger: 0.15,
+  });
+</script>
+
+<div class:list={["card rounded-lg overflow-hidden ", props.class]}>
+  <slot />
+</div>

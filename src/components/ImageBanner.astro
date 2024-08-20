@@ -1,36 +1,31 @@
 ---
 import { Image } from "astro:assets";
+import Card from "./Card.astro";
 
 interface Props {
   src: ImageMetadata;
-  title: string;
+  class?: string;
 }
 ---
 
-<script>
-  import gsap from "gsap";
-
-  gsap.to(".image-banner", {
-    opacity: 1,
-    y: 0,
-    duration: 1,
-    delay: 1,
-    stagger: 0.15,
-  });
-</script>
-
-<div
-  class="image-banner opacity-0 translate-y-6 bg-gray-500 aspect-[3/2] min-w-[300px] flex-1 flex-center text-center"
+<Card
+  class:list={[
+    "image-banner bg-gray-500 aspect-[3/2] flex-1 flex-center p-4",
+    Astro.props.class,
+  ]}
 >
   <Image
     loading="eager"
     src={Astro.props.src}
+    width={500}
     alt=""
     class="absolute w-full h-full object-cover"
   />
   <div
-    class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent to-black"
+    class="absolute inset-0 pointer-events-none bg-gradient-to-b from-black/20 to-black/80"
   >
   </div>
-  <h1 class="relative text-white font-bold">{Astro.props.title}</h1>
-</div>
+  <div class="relative text-white max-w-[80%]">
+    <slot />
+  </div>
+</Card>

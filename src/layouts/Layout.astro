@@ -19,7 +19,15 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="font-hero">
+
+  <body class="font-hero opacity-0">
+    <script>
+      import gsap from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.to("body", { opacity: 1, duration: 0 });
+    </script>
     <slot />
   </body>
 </html>
