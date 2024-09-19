@@ -20,14 +20,25 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
 
-  <body class="font-hero opacity-0">
+  <body class="relative font-hero opacity-0 bg-dark text-white">
     <script>
       import gsap from "gsap";
+      import { ScrollSmoother } from "gsap/ScrollSmoother";
       import { ScrollTrigger } from "gsap/ScrollTrigger";
-      gsap.registerPlugin(ScrollTrigger);
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
       gsap.to("body", { opacity: 1, duration: 0 });
+
+      ScrollSmoother.create({
+        smooth: 1,
+        effects: true,
+      });
     </script>
-    <slot />
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <slot />
+      </div>
+    </div>
   </body>
 </html>

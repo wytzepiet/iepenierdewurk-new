@@ -1,14 +1,15 @@
 ---
 interface Props {
   class?: string;
+  animate?: boolean;
 }
-const props = Astro.props;
+const { class: className, animate = true } = Astro.props;
 ---
 
 <script>
   import gsap from "gsap";
 
-  gsap.from(".card", {
+  gsap.from(".card.animate", {
     opacity: 0,
     y: 20,
     duration: 1,
@@ -17,6 +18,12 @@ const props = Astro.props;
   });
 </script>
 
-<div class:list={["card rounded-lg overflow-hidden ", props.class]}>
+<div
+  class:list={[
+    "card rounded-lg overflow-hidden ",
+    className,
+    animate ? "animate" : "",
+  ]}
+>
   <slot />
 </div>

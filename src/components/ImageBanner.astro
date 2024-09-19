@@ -5,27 +5,26 @@ import Card from "./Card.astro";
 interface Props {
   src: ImageMetadata;
   class?: string;
+  width?: number;
 }
 ---
 
 <Card
   class:list={[
-    "image-banner bg-gray-500 aspect-[3/2] flex-1 flex-center p-4",
+    "image-banner bg-gray-500 p-4 aspect-[3/2] h-full w-full flex-1 flex flex-col items-center justify-center  text-white",
     Astro.props.class,
   ]}
 >
-  <Image
-    loading="eager"
-    src={Astro.props.src}
-    width={500}
-    alt=""
-    class="absolute w-full h-full object-cover"
-  />
   <div
-    class="absolute inset-0 pointer-events-none bg-gradient-to-b from-black/20 to-black/80"
+    class="absolute inset-0 pointer-events-none bg-gradient-to-b bg-[#646668]"
   >
+    <Image
+      loading="eager"
+      src={Astro.props.src}
+      width={Astro.props.width ?? 500}
+      alt=""
+      class="absolute w-full h-full object-cover mix-blend-overlay"
+    />
   </div>
-  <div class="relative text-white max-w-[80%]">
-    <slot />
-  </div>
+  <slot />
 </Card>

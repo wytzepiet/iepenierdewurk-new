@@ -8,68 +8,104 @@ import Docu from "../images/docu.jpeg";
 import Fabriek from "../images/fabriek.png";
 import Kom from "../images/kom.webp";
 import Podwalk from "../images/podwalk.png";
+import FivefalBot from "../images/fivefal-bot.jpg";
+import LogoConcrete from "../images/logo-concrete.webp";
+import LogoConcreteDark from "../images/logo-concrete-dark.webp";
+import Concrete from "../images/concrete.webp";
+import LogoPaint from "../images/logo-paint.webp";
 
 import { Image, imageConfig } from "astro:assets";
 import Card from "../components/Card.astro";
 ---
-
-<script>
-  import gsap from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
-
-  ScrollTrigger.create({
-    start: 0,
-    end: 200,
-    scrub: true,
-    onUpdate: (self) => {
-      const trigger = document.getElementById("video")!;
-      console.log(self.progress);
-      trigger.style.filter = `blur(${self.progress * 10 + 10}px)`;
-    },
-  });
-</script>
 
 <Layout title="Iepen Ierdewurk">
   <!-- <div class="w-full h-[60vw] max-h-[calc(100vh-100px)] flex justify-center">
     <div class="absolute inset-0 top-[50vw]"></div>
     
   </div> -->
-  <div class="hidden">o</div>
 
   <!-- <Image src={Ruth} alt="" id="kom" /> -->
 
-  <video
+  <!-- <video
     autoplay
     muted
     id="video"
     src="/docu.mp4"
     class="fixed inset-0 h-full w-full object-cover opacity-50 scale-105 mix-blend-hard-light"
-  ></video>
+  ></video> -->
 
-  <div class="relative gap-4 p-4 grid grid-cols-1 md:grid-cols-3">
-    <Card
-      class="relative w-full flex justify-center p-8 py-20 md:col-span-3 h-[50vw] min-h-[40vh] max-h-[70vh]"
+  <!-- <div
+    class="absolute inset-0 w-full bg-red-300"
+    style="background: linear-gradient(to bottom, #C5CAD6, #000311 200vh);"
+  >
+  </div> -->
+
+  <div class="absolute w-full h-screen bg-light" data-speed="clamp(0.5)">
+    <Image
+      src={Concrete}
+      alt=""
+      class="absolute w-full h-screen object-cover mix-blend-difference"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-dark/40 to-dark"></div>
+  </div>
+  <div class="gap-4 p-4 grid grid-cols-1 md:grid-cols-3">
+    <div class="relative max-h-[50vh] md:col-span-3 m-8">
+      <Image
+        src={LogoPaint}
+        alt=""
+        class="w-full h-full object-cover mix-blend-soft-light grayscale"
+        data-speed="clamp(0.5)"
+      />
+      <Image
+        src={LogoPaint}
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover mix-blend-soft-light grayscale"
+        data-speed="clamp(0.5)"
+      />
+      <Image
+        src={LogoPaint}
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover mix-blend-soft-light grayscale"
+        data-speed="clamp(0.5)"
+      />
+      <Image
+        src={LogoPaint}
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover mix-blend-soft-light grayscale"
+        data-speed="clamp(0.5)"
+      />
+    </div>
+
+    <ImageBanner
+      src={FivefalBot}
+      width={1000}
+      class="md:col-span-2 md:row-span-2"
     >
-      <Logo />
-    </Card>
+      <div class="w-full" data-speed="1.1">
+        <h1 class="relative text-white font-bold text-7xl">
+          Ruig <br />
+          van de <br />
+          Tichel
+        </h1>
+        <p>Theater door jongeren</p>
+        <br />
+        <a class="p-2 border-2 rounded" href="/theater">Bekijk meer</a>
+      </div>
+    </ImageBanner>
     <ImageBanner src={Ruth}>
-      <h1 class="relative text-white font-bold">Pop-up exposities</h1>
-      <p>Gezonken schat</p>
+      <div class="w-full h-full flex flex-col items-center justify-end">
+        <h1 class="relative text-white font-bold">Pop-up exposities</h1>
+      </div>
     </ImageBanner>
     <ImageBanner src={Docu}>
-      <h1 class="relative text-white font-bold">Documentaire</h1>
-      <p>De Iepen Ierdewurk</p>
-    </ImageBanner>
-    <ImageBanner src={Fabriek}>
-      <h1 class="relative text-white font-bold">
-        Coming soon: Frysk brûsend theater
-      </h1>
-      <p>De Iepen Ierdewurk</p>
+      <div class="w-full h-full flex flex-col items-center justify-end">
+        <h1 class="relative text-white font-bold">Documentaire</h1>
+        <p>De Iepen Ierdewurk</p>
+      </div>
     </ImageBanner>
 
     <Card
-      class="flex flex-col sm:flex-row items-center justify-center gap-4 md:col-span-3 bg-black/70 text-white p-4 backdrop-blur"
+      class="flex flex-col sm:flex-row items-center justify-center gap-4 md:col-span-3 text-white p-4"
     >
       <Image src={Podwalk} alt="" class="max-w-96 flex-shrink-1" />
       <div class="flex-shrink max-w-lg text-center sm:text-left">
@@ -81,10 +117,14 @@ import Card from "../components/Card.astro";
           Benieuwd naar de rijke handelsgeschiedenis van Makkum in de periode
           voor 1800? Stap in het verhaal van Makkum en doe de podwalk!
         </p>
+        <br />
+        <a class="p-2 border-2 rounded" href="https://onelink.to/e6h74y"
+          >Download de Podwalk</a
+        >
       </div>
     </Card>
 
-    <Card class="sm:col-span-3">
+    <!-- <Card class="md:col-span-3">
       <div
         class="relative flex flex-col p-8 gap-8 text-center font-lovelo font-light text-8xl text-white"
       >
@@ -95,7 +135,7 @@ import Card from "../components/Card.astro";
           Turfmarkt 65, Makkum
         </h2>
       </div>
-    </Card>
+    </Card> -->
   </div>
 </Layout>
 <!-- <div class="relative h-screen w-full bg-lightblue"></div> -->

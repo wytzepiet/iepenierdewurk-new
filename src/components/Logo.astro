@@ -43,7 +43,7 @@
       line.setAttribute("x2", point.x.toString());
       line.setAttribute("y2", point.y.toString());
 
-      line.setAttribute("stroke", "white");
+      line.setAttribute("stroke", "black");
 
       line.style.animationDelay = `${delay + 1000 + i * durationIncrement}ms`;
 
@@ -61,6 +61,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xml:space="preserve"
     style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+    class="w-full"
   >
     <defs>
       <filter id="roughen">
@@ -187,7 +188,7 @@
   .logo {
     /* animation: scale 5s cubic-bezier(0.65, 0, 0.35, 1) both; */
     transform-origin: center;
-    width: 80%;
+    width: 100%;
   }
   .logo :global(path) {
     fill: none;

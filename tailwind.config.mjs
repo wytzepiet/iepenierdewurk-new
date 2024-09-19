@@ -8,7 +8,8 @@ export default {
         lovelo: ["Lovelo", "sans-serif"],
       },
       colors: {
-        lightblue: "#c7ccd8",
+        light: "#C5CAD6",
+        dark: "#000311",
       },
     },
   },
