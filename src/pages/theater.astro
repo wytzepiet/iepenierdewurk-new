@@ -40,14 +40,14 @@ const images = await Astro.glob("/src/images/fivefal/*").then((files) => {
     <div class="absolute inset-0 bg-gradient-to-b from-dark/40 to-dark"></div>
   </div>
   <h1
-    class="text-9xl p-8 font-bold mix-blend-plus-lighter"
+    class="text-6xl sm:text-9xl p-8 font-bold mix-blend-plus-lighter"
     data-speed="clamp(0.5)"
   >
     Ruig<br />
     van de<br />
     Tichel
   </h1>
-  <div class="grid grid-cols-3 gap-4 p-4">
+  <div class="grid md:grid-cols-3 gap-4 p-4">
     {
       images.map((image, i) => {
         const spans = [2, 1, 1, 1, 2, 1, 1, 1, 1, 3];

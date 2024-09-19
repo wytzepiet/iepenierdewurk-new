@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    line-height: 1.2em;
+  }
   h1 {
     @apply font-lovelo text-3xl;
   }
